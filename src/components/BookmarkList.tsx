@@ -29,7 +29,7 @@ export function BookmarkList({
           </li>
         ))}
       </ul>
-      <small>{bookmarks.length} / 20 used</small>
+      <small>{bookmarks.length} / 2000 used</small>
     </section>
   );
 }

@@ -2,7 +2,7 @@
 import { query, mutation } from "./_generated/server";
 import { v, ConvexError } from "convex/values";
 
-const MAX_PER_CHAPTER = 20;
+const MAX_PER_CHAPTER = 2000;
 const MAX_NOTE_LENGTH = 80;
 
 export const listByChapter = query({
