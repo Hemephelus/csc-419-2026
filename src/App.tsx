@@ -1,23 +1,25 @@
-import { Pause, Play } from "lucide-react";
-import { Button } from "../components/ui/button";
-import "./App.css";
-import { useState } from "react";
+import type { Id } from "../convex/_generated/dataModel";
+import { AddBookmarkButton } from "./components/AddBookMark";
+import { BookmarkList } from "./components/BookmarkList";
+import { TrackHeader } from "./components/TrackHeader";
 
 function App() {
-  // const [isPlaying, setIsPlaying] = useState(false);
-  return (
-    <>
-      <PlayButton />
-      {/* <Button variant={"default"} onClick={() => setIsPlaying(!isPlaying)}>
-        {isPlaying ? <Pause size={10} /> : <Play size={10} />}
-      </Button> */}
-    </>
-  );
-}
+  function onSeek(second: number) {
+    console.log(second);
+  }
 
-export function PlayButton() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  return <Button onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? <Pause /> : <Play />}</Button>;
+  return (
+    <div className="flex items-center justify-center h-screen flex-col">
+      {/* <TrackInfo title="The Science of Deduction" author="Arthur Conan Doyle" narrator="Stephen Nwachukwu" /> */}
+
+      <TrackHeader bookId={"jd7e563bdqeenqgstq5a734q2n8hnnfd" as Id<"books">} />
+      <AddBookmarkButton bookId={"jd7e563bdqeenqgstq5a734q2n8hnnfd" as Id<"books">} chapter={1} time={10} />
+      <BookmarkList bookId={"jd7e563bdqeenqgstq5a734q2n8hnnfd" as Id<"books">} chapter={1} onSeek={onSeek} />
+      {/* <PlayPauseButton /> */}
+
+      {/* <BookmarkNote note="Nice book" /> */}
+    </div>
+  );
 }
 
 export default App;

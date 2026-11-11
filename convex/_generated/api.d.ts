@@ -8,13 +8,21 @@
  * @module
  */
 
+import type * as bookmarks from "../bookmarks.js";
+import type * as books from "../books.js";
+import type * as progress from "../progress.js";
+
 import type {
   ApiFromModules,
   FilterApi,
   FunctionReference,
 } from "convex/server";
 
-declare const fullApi: ApiFromModules<{}>;
+declare const fullApi: ApiFromModules<{
+  bookmarks: typeof bookmarks;
+  books: typeof books;
+  progress: typeof progress;
+}>;
 
 /**
  * A utility for referencing Convex functions in your app's public API.
