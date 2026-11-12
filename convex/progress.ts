@@ -5,12 +5,13 @@ import { v, ConvexError } from "convex/values";
 export const get = query({
   args: { bookId: v.id("books") },
   handler: async (ctx, { bookId }) => {
-    const identity = await ctx.auth.getUserIdentity();
-    if (!identity) return null;
+    // const identity = await ctx.auth.getUserIdentity();
+    // if (!identity) return [];
+    const userId = "userId419";
 
     return await ctx.db
       .query("playbackProgress")
-      .withIndex("by_user_book", (q) => q.eq("userId", identity.tokenIdentifier).eq("bookId", bookId))
+      .withIndex("by_user_book", (q) => q.eq("userId", userId).eq("bookId", bookId))
       .unique(); // at most one row per user+book
   },
 });
@@ -19,9 +20,9 @@ export const get = query({
 export const save = mutation({
   args: { bookId: v.id("books"), position: v.number(), speed: v.number() },
   handler: async (ctx, args) => {
-    const identity = await ctx.auth.getUserIdentity();
-    if (!identity) throw new ConvexError("Not signed in");
-    const userId = identity.tokenIdentifier;
+    // const identity = await ctx.auth.getUserIdentity();
+    // if (!identity) return [];
+    const userId = "userId419";
 
     const book = await ctx.db.get(args.bookId);
     if (!book) throw new ConvexError("Book not found");

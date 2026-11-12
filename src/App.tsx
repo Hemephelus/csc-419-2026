@@ -13,8 +13,8 @@ function App() {
       {/* <TrackInfo title="The Science of Deduction" author="Arthur Conan Doyle" narrator="Stephen Nwachukwu" /> */}
 
       <TrackHeader bookId={"jd7e563bdqeenqgstq5a734q2n8hnnfd" as Id<"books">} />
-      <AddBookmarkButton bookId={"jd7e563bdqeenqgstq5a734q2n8hnnfd" as Id<"books">} chapter={1} time={10} />
-      <BookmarkList bookId={"jd7e563bdqeenqgstq5a734q2n8hnnfd" as Id<"books">} chapter={1} onSeek={onSeek} />
+      <AddBookmarkButton bookId={"jd7e563bdqeenqgstq5a734q2n8hnnfd" as Id<"books">} chapter={2} time={40} />
+      <BookmarkList bookId={"jd7e563bdqeenqgstq5a734q2n8hnnfd" as Id<"books">} chapter={2} onSeek={onSeek} />
       {/* <PlayPauseButton /> */}
 
       {/* <BookmarkNote note="Nice book" /> */}

@@ -2,8 +2,8 @@
 import { query, mutation } from "./_generated/server";
 import { v, ConvexError } from "convex/values";
 
-const MAX_PER_CHAPTER = 2000;
-const MAX_NOTE_LENGTH = 80;
+const MAX_PER_CHAPTER = 30;
+const MAX_NOTE_LENGTH = 100;
 
 export const listByChapter = query({
   args: { bookId: v.id("books"), chapter: v.number() },
@@ -44,7 +44,7 @@ export const add = mutation({
       .collect();
 
     if (existing.length >= MAX_PER_CHAPTER) {
-      throw new ConvexError("Max 10 bookmarks per chapter");
+      throw new ConvexError(`Max ${MAX_PER_CHAPTER} bookmarks per chapter`);
     }
 
     return await ctx.db.insert("bookmarks", {
